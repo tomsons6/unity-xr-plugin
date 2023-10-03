@@ -283,6 +283,10 @@ namespace Unity.XR.OpenVR
         {
             if (watcherThread != null)
             {
+                while(watcherThread.IsAlive)
+                {
+                    running = false;
+                }
                 watcherThread.Abort();
                 watcherThread = null;
             }
